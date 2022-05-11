@@ -1,5 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
+import { useSetRecoilState } from "recoil";
+import { authModalState } from "../../../atoms/authModalAtom";
 // import { useSetRecoilState } from "recoil";
 // import { authModalState } from "../../../atoms/authModalAtom";
 // import AuthModal from "../../Modal/Auth";
@@ -10,7 +12,7 @@ type AuthButtonsProps = {};
 // NOTE 認証モーダルのボタン
 // ----------------------
 const AuthButtons: React.FC<AuthButtonsProps> = () => {
-  // const setAuthModalState = useSetRecoilState(authModalState);
+  const setAuthModalState = useSetRecoilState(authModalState);
 
   return (
     <>
@@ -20,7 +22,7 @@ const AuthButtons: React.FC<AuthButtonsProps> = () => {
         display={{ base: "none", sm: "flex" }}
         width={{ base: "70px", md: "110px" }}
         mr={2}
-        // onClick={() => setAuthModalState({ open: true, view: "login" })}
+        onClick={() => setAuthModalState({ open: true, view: "login" })}
       >
         Log In
       </Button>
@@ -30,7 +32,7 @@ const AuthButtons: React.FC<AuthButtonsProps> = () => {
         display={{ base: "none", sm: "flex" }}
         width={{ base: "70px", md: "110px" }}
         mr={2}
-        // onClick={() => setAuthModalState({ open: true, view: "signup" })}
+        onClick={() => setAuthModalState({ open: true, view: "signup" })}
       >
         Sign Up
       </Button>
