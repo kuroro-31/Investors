@@ -23,8 +23,7 @@ const AuthModal: React.FC<AuthModalProps> = () => {
     }))
 
   return (
-    <>
-      <Modal isOpen={modalState.open} onClose={handleClose}>
+    <Modal isOpen={modalState.open} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
@@ -82,7 +81,6 @@ const AuthModal: React.FC<AuthModalProps> = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
-    </>
   )
 }
 export default AuthModal

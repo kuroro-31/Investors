@@ -1,9 +1,7 @@
 import type { NextPage } from 'next'
 
-const Home: NextPage = () => {
-  return (
-    <div className=""></div>
+const Home: NextPage = () => (
+    <div className="" />
   )
-}
 
 export default Home

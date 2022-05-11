@@ -6,8 +6,7 @@ type SearchInputProps = {
   // user: User;
 };
 
-const SearchInput: React.FC<SearchInputProps> = () => {
-  return (
+const SearchInput: React.FC<SearchInputProps> = () => (
     <Flex
       flexGrow={1}
       mr={2}
@@ -41,5 +40,4 @@ const SearchInput: React.FC<SearchInputProps> = () => {
       </InputGroup>
     </Flex>
   );
-};
 export default SearchInput;

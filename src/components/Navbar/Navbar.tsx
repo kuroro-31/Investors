@@ -3,8 +3,7 @@ import React from 'react';
 import RightContent from './RightContent/RightContent';
 import SearchInput from './SearchInput';
 
-const Navbar: React.FC = () => {
-  return (
+const Navbar: React.FC = () => (
     <Flex
       bg='white'
       height='44px'
@@ -30,5 +29,4 @@ const Navbar: React.FC = () => {
       <RightContent />
     </Flex>
   )
-}
 export default Navbar

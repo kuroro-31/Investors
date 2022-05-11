@@ -7,9 +7,7 @@ type RightContentProps = {
   // user: any
 };
 
-const RightContent:React.FC<RightContentProps> = () => {
-  
-  return (
+const RightContent:React.FC<RightContentProps> = () => (
     <>
     <AuthModal />
     <Flex justifyContent="space-between" alignItems="center">
@@ -18,5 +16,4 @@ const RightContent:React.FC<RightContentProps> = () => {
       </Flex>
     </>
   )
-}
 export default RightContent;
