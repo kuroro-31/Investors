@@ -10,6 +10,8 @@ import {
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { authModalState } from '../../../atoms/authModalAtom'
+import AuthInputs from './AuthInputs'
+import OAuthButtons from './OAuthButtons'
 
 type AuthModalProps = {}
 
@@ -49,34 +51,9 @@ const AuthModal: React.FC<AuthModalProps> = () => {
               justifyContent='center'
               width='70%'
             >
-              {/* {modalState.view === 'login' || modalState.view === 'signup' ? (
-                <>
-                  <OAuthButtons />
-                  OR
-                  <AuthInputs toggleView={toggleView} />
-                </>
-              ) : (
-                <ResetPassword toggleView={toggleView} />
-              )} */}
-              {/* // Will implement at end of tutorial */}
-              {/* {user && !currentUser && (
-                <>
-                  <Spinner size="lg" mt={2} mb={2} />
-                  <Text fontSize="8pt" textAlign="center" color="blue.500">
-                    You are logged in. You will be redirected soon
-                  </Text>
-                </>
-              )} */}
-              {/* {false ? (
-                <Flex
-                  direction="column"
-                  justifyContent="center"
-                  alignItems="center"
-                  height="100%"
-                >
-                </Flex>
-              ) : (
-              )} */}
+              <OAuthButtons />
+              OR
+              <AuthInputs />
             </Flex>
           </ModalBody>
         </ModalContent>

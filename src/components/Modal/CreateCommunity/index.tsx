@@ -14,13 +14,13 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { doc, runTransaction, serverTimestamp } from "firebase/firestore";
+// import { doc, runTransaction, serverTimestamp } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { BsFillEyeFill, BsFillPersonFill } from "react-icons/bs";
 import { HiLockClosed } from "react-icons/hi";
 import { useSetRecoilState } from "recoil";
 import { communityState } from "../../../atoms/communitiesAtom";
-import { firestore } from "../../../firebase/clientApp";
+// import { firestore } from "../../../firebase/clientApp";
 import ModalWrapper from "../ModalWrapper";
 
 type CreateCommunityModalProps = {
@@ -141,7 +141,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
             value={name}
             onChange={handleChange}
             pl="22px"
-            type={""}
+            type=""
             size="sm"
           />
           <Text
