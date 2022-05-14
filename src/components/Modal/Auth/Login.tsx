@@ -1,15 +1,18 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-// import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { ModalView } from "../../../atoms/authModalAtom";
-// import { auth } from "../../../firebase/clientApp";
-// import { FIREBASE_ERRORS } from "../../../firebase/errors";
-// import InputItem from "../../Layout/InputItem";
+import { auth } from "../../../firebase/clientApp";
+import { FIREBASE_ERRORS } from "../../../firebase/errors";
+import InputItem from "../../Layout/InputItem";
 
 type LoginProps = {
   toggleView: (view: ModalView) => void;
 };
 
+// ------------------------
+// NOTE ログインモーダルの中身
+// ------------------------
 const Login: React.FC<LoginProps> = ({ toggleView }) => {
   const [form, setForm] = useState({
     email: "",
@@ -17,8 +20,8 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
   });
   const [formError, setFormError] = useState("");
 
-  // const [signInWithEmailAndPassword, _, loading, authError] =
-  //   useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, _, loading, authError] =
+    useSignInWithEmailAndPassword(auth);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,7 +31,7 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
     }
 
     // Valid form inputs
-    // signInWithEmailAndPassword(form.email, form.password);
+    signInWithEmailAndPassword(form.email, form.password);
   };
 
   const onChange = ({
@@ -42,7 +45,7 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      {/* <InputItem
+      <InputItem
         name="email"
         placeholder="email"
         type="text"
@@ -54,18 +57,18 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
         placeholder="password"
         type="password"
         onChange={onChange}
-      /> */}
-      {/* <Text textAlign="center" mt={2} fontSize="10pt" color="red">
+      />
+      <Text textAlign="center" mt={2} fontSize="10pt" color="red">
         {formError ||
           FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
-      </Text> */}
+      </Text>
       <Button
         width="100%"
         height="36px"
         mb={2}
         mt={2}
         type="submit"
-        // isLoading={loading}
+        isLoading={loading}
       >
         Log In
       </Button>

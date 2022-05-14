@@ -1,10 +1,10 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
-// import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { ModalView } from "../../../atoms/authModalAtom";
-// import { auth } from "../../../firebase/clientApp";
-// import { FIREBASE_ERRORS } from "../../../firebase/errors";
-// import InputItem from "../../Layout/InputItem";
+import { auth } from "../../../firebase/clientApp";
+import { FIREBASE_ERRORS } from "../../../firebase/errors";
+import InputItem from "../../Layout/InputItem";
 
 type SignUpProps = {
   toggleView: (view: ModalView) => void;
@@ -17,8 +17,8 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
     confirmPassword: "",
   });
   const [formError, setFormError] = useState("");
-  // const [createUserWithEmailAndPassword, _, loading, authError] =
-  //   useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, _, loading, authError] =
+    useCreateUserWithEmailAndPassword(auth);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,7 +32,7 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
     }
 
     // Valid form inputs
-    // createUserWithEmailAndPassword(form.email, form.password);
+    createUserWithEmailAndPassword(form.email, form.password);
   };
 
   const onChange = ({
@@ -46,7 +46,7 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      {/* <InputItem
+      <InputItem
         name="email"
         placeholder="email"
         type="text"
@@ -69,14 +69,14 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
       <Text textAlign="center" mt={2} fontSize="10pt" color="red">
         {formError ||
           FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
-      </Text> */}
+      </Text>
       <Button
         width="100%"
         height="36px"
         mb={2}
         mt={2}
         type="submit"
-        // isLoading={loading}
+        isLoading={loading}
       >
         Sign Up
       </Button>
