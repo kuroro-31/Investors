@@ -1,6 +1,6 @@
-// --------------------------------------------------------------
-// NOTE Firebaseのエラーをそのまま表示すると味気ないので、テキストを変える
-// --------------------------------------------------------------
+// ----------------------------------------------------
+// NOTE Firebaseエラーを表示するとわかりにくいのでテキスト変更
+// ----------------------------------------------------
 export const FIREBASE_ERRORS = {
   "Firebase: Error (auth/email-already-in-use).": "A user with that email already exists",
   "Firebase: Error (auth/user-not-found).": "Invalid email or password",
