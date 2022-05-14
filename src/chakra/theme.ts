@@ -10,10 +10,14 @@ export const theme = extendTheme({
       100: "#FF3C00",
     },
   },
+  fonts: {
+    heading: 'Montserrat, sans-serif;',
+    body: 'Montserrat, sans-serif;',
+  },
   styles: {
     global: () => ({
       body: {
-        bg: "gray.200",
+        bg: `#1E1D2A`,
       },
     }),
   },
