@@ -16,13 +16,17 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
     password: "",
     confirmPassword: "",
   });
+
   const [formError, setFormError] = useState("");
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   const [createUserWithEmailAndPassword, _, loading, authError] =
-    useCreateUserWithEmailAndPassword(auth);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+  useCreateUserWithEmailAndPassword(auth);
 
   // --------------------------------------
   // NOTE フォームのチェックの後、firebaseに送る
   // --------------------------------------
+  // eslint-disable-next-line consistent-return
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -41,7 +45,7 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
     }
 
     // Valid form inputs
-    createUserWithEmailAndPassword(form.email, form.password);
+    void createUserWithEmailAndPassword(form.email, form.password);
   };
 
   const onChange = ({
@@ -76,9 +80,11 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
         onChange={onChange}
       />
 
-      {/* Firebaseのエラー */}
+      {/* NOTE エラー */}
       <Text textAlign="center" mt={2} fontSize="10pt" color="red">
-        {formError || FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
+        { // 送信前チェックエラー、またはfirebaseのエラー
+          formError || FIREBASE_ERRORS [authError ?.message as keyof typeof FIREBASE_ERRORS]
+        }
       </Text>
 
       <Button
