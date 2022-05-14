@@ -12,6 +12,7 @@ import { useRecoilState } from 'recoil'
 import { authModalState } from '../../../atoms/authModalAtom'
 import AuthInputs from './AuthInputs'
 import OAuthButtons from './OAuthButtons'
+import ResetPassword from './ResetPassword'
 
 const AuthModal: React.FC = () => {
   const [modalState, setModalState] = useRecoilState(authModalState)
@@ -56,9 +57,15 @@ const AuthModal: React.FC = () => {
               justifyContent='center'
               width='70%'
             >
-              <OAuthButtons />
-              OR
-              <AuthInputs toggleView={toggleView} />
+             {modalState.view === "login" || modalState.view === "signup" ? (
+                <>
+                  <OAuthButtons />
+                  OR
+                  <AuthInputs toggleView={toggleView} />
+                </>
+              ) : (
+                <ResetPassword toggleView={toggleView} />
+              )}
             </Flex>
           </ModalBody>
         </ModalContent>
