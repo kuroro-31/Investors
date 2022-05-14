@@ -13,9 +13,7 @@ import { authModalState } from '../../../atoms/authModalAtom'
 import AuthInputs from './AuthInputs'
 import OAuthButtons from './OAuthButtons'
 
-type AuthModalProps = {}
-
-const AuthModal: React.FC<AuthModalProps> = () => {
+const AuthModal: React.FC = () => {
   const [modalState, setModalState] = useRecoilState(authModalState)
 
   const handleClose = () =>
@@ -23,6 +21,13 @@ const AuthModal: React.FC<AuthModalProps> = () => {
       ...prev,
       open: false
     }))
+
+  const toggleView = (view: string) => {
+    setModalState({
+      ...modalState,
+      view: view as typeof modalState.view,
+    });
+  };
 
   return (
     <Modal isOpen={modalState.open} onClose={handleClose}>
@@ -53,7 +58,7 @@ const AuthModal: React.FC<AuthModalProps> = () => {
             >
               <OAuthButtons />
               OR
-              <AuthInputs />
+              <AuthInputs toggleView={toggleView} />
             </Flex>
           </ModalBody>
         </ModalContent>
