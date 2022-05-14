@@ -29,6 +29,9 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
     if (!form.email.includes("@")) {
       return setFormError("Please enter a valid email");
     }
+    if (form.password.length <= 6) {
+      return setFormError("Password should be at least 6 characters");
+    }
 
     // Valid form inputs
     signInWithEmailAndPassword(form.email, form.password);
@@ -58,10 +61,13 @@ const Login: React.FC<LoginProps> = ({ toggleView }) => {
         type="password"
         onChange={onChange}
       />
+
+      {/* NOTE エラー */}
       <Text textAlign="center" mt={2} fontSize="10pt" color="red">
         {formError ||
           FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
       </Text>
+
       <Button
         width="100%"
         height="36px"

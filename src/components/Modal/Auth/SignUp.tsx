@@ -18,15 +18,11 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
   });
 
   const [formError, setFormError] = useState("");
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const [createUserWithEmailAndPassword, _, loading, authError] =
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-  useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, _, loading, authError] =　useCreateUserWithEmailAndPassword(auth);
 
   // --------------------------------------
   // NOTE フォームのチェックの後、firebaseに送る
   // --------------------------------------
-  // eslint-disable-next-line consistent-return
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
