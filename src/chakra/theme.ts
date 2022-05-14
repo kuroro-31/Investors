@@ -10,9 +10,6 @@ export const theme = extendTheme({
       100: "#FF3C00",
     },
   },
-  fonts: {
-    body: "Open Sans, sans-serif",
-  },
   styles: {
     global: () => ({
       body: {
