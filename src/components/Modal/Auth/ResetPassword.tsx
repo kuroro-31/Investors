@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { Button, Flex, Icon, Input, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { BsDot, BsReddit } from "react-icons/bs";
 import { useSetRecoilState } from "recoil";
@@ -30,7 +30,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({ toggleView }) => {
         Reset your password
       </Text>
       {success ? (
-        <Text mb={4}>Check your email :)</Text>
+        <Text mb={4}>Check your email!</Text>
       ) : (
         <>
           <Text fontSize="sm" textAlign="center" mb={2}>
