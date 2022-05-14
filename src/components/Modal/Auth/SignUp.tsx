@@ -20,15 +20,24 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
   const [createUserWithEmailAndPassword, _, loading, authError] =
     useCreateUserWithEmailAndPassword(auth);
 
+  // --------------------------------------
+  // NOTE フォームのチェックの後、firebaseに送る
+  // --------------------------------------
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     if (formError) setFormError("");
+
     if (!form.email.includes("@")) {
       return setFormError("Please enter a valid email");
     }
 
     if (form.password !== form.confirmPassword) {
       return setFormError("Passwords do not match");
+    }
+
+    if (form.password.length <= 6) {
+      return setFormError("Password should be at least 6 characters");
     }
 
     // Valid form inputs
@@ -66,10 +75,12 @@ const SignUp: React.FC<SignUpProps> = ({ toggleView }) => {
         type="password"
         onChange={onChange}
       />
+
+      {/* Firebaseのエラー */}
       <Text textAlign="center" mt={2} fontSize="10pt" color="red">
-        {formError ||
-          FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
+        {formError || FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
       </Text>
+
       <Button
         width="100%"
         height="36px"
