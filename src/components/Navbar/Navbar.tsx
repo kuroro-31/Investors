@@ -5,6 +5,7 @@ import SearchInput from './SearchInput';
 
 const Navbar: React.FC = () => (
     <Flex
+      bg='white'
       height='44px'
       padding='6px 12px'
       justifyContent={{ md: 'space-between' }}
