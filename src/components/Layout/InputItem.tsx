@@ -1,4 +1,4 @@
-import { FormControl, FormErrorMessage, Input } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import React from "react";
 
 type InputItemProps = {
@@ -21,8 +21,7 @@ const InputItem: React.FC<InputItemProps> = ({
   mb,
   bg,
   size,
-}) => {
-  return (
+}) => (
     <Input
       name={name}
       placeholder={placeholder}
@@ -49,5 +48,4 @@ const InputItem: React.FC<InputItemProps> = ({
       borderRadius={4}
     />
   );
-};
 export default InputItem;
